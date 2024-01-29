@@ -14,7 +14,7 @@ class TypesTableSeeder extends Seeder
      */
     public function run(): void
     {
-        $types = ['Graphic', 'Layouts', 'HTML', 'Vue', 'Laravel'];
+        $types = ['Graphic', 'Layouts', 'Carousel'];
         foreach ($types as $type) {
             $newtype = new Type();
             $newtype->name = $type;
