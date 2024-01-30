@@ -52,6 +52,17 @@
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
             </div>
+
+            @foreach ($technologies as $technology)
+                <div class="mb-3 form-check">
+                    <input type="checkbox" name="technologies[]" id="technology-{{ $technology->id }}" value="{{ $technology->id }}">
+                    <label for="technology-{{ $technology->id }}">{{ $technology->name }}</label>
+                </div>
+            @endforeach
+
+            @error('tags')
+                <div class="text-danger">{{ $message }}</div>
+            @enderror
             
             <button class="btn btn-success" type="submit">Salva</button>
 
