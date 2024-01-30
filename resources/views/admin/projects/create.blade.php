@@ -52,14 +52,18 @@
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
             </div>
+            
+            <div class="mb-3">
+                <h4>Seleziona tecnologie</h4>
 
-            @foreach ($technologies as $technology)
-                <div class="mb-3 form-check">
-                    <input @checked(in_array($technology->id, old('technologies', []))) type="checkbox" name="technologies[]" id="technology-{{ $technology->id }}" value="{{ $technology->id }}">
-                    <label for="technology-{{ $technology->id }}">{{ $technology->name }}</label>
-                </div>
-            @endforeach
-
+                @foreach ($technologies as $technology)
+                    <div class="form-check">
+                        <input @checked(in_array($technology->id, old('technologies', []))) type="checkbox" name="technologies[]" id="technology-{{ $technology->id }}" value="{{ $technology->id }}">
+                        <label for="technology-{{ $technology->id }}">{{ $technology->name }}</label>
+                    </div>
+                @endforeach
+            </div>
+            
             @error('tags')
                 <div class="text-danger">{{ $message }}</div>
             @enderror
